@@ -53,6 +53,7 @@ int check_device(int argc, char** argv)
     printf(" Total amount of shared memory per block: %lu bytes\n", deviceProp.sharedMemPerBlock);
     printf(" Total number of registers available per block: %d\n", deviceProp.regsPerBlock);
     printf(" Warp size: %d\n", deviceProp.warpSize);
+    printf(" Multi Processor Count: %d\n", deviceProp.multiProcessorCount);
     printf(" Maximum number of threads per multiprocessor: %d\n",
            deviceProp.maxThreadsPerMultiProcessor);
     printf(" Maximum number of threads per block: %d\n", deviceProp.maxThreadsPerBlock);
