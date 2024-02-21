@@ -1,10 +1,8 @@
-#include "test.cuh"
-#include <stdio.h>
+#include "fwd.cuh"
 
-int main()
+int main(int argc, char** argv)
 {
-    printf("12\n");
-    wrap_test_print();
-    printf("112\n");
+    // hello_world(argc, argv);
+    check_device(argc, argv);
     return 0;
 }

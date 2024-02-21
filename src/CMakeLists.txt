@@ -1,6 +1,6 @@
 
 add_executable(nvtest
-    test.cu
-    test.cuh
     main.cpp
+    hello_world.cu
+    check_device.cu
 )
