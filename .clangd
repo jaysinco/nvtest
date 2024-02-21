@@ -1,0 +1,11 @@
+CompileFlags:
+  CompilationDatabase: out/
+  Add:
+    - --cuda-path=/usr/local/cuda
+    - -IC:/usr/local/cuda/include
+    - -LC:/usr/local/cuda/lib64
+
+InlayHints:
+  Enabled: No
+  ParameterNames: Yes
+  DeducedTypes: Yes
