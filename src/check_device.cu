@@ -1,4 +1,4 @@
-#include "fwd.cuh"
+#include "./fwd.cuh"
 #include <cuda_runtime.h>
 #include <stdio.h>
 

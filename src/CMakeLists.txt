@@ -4,4 +4,6 @@ add_executable(nvtest
     hello_world.cu
     check_device.cu
     sum_matrix.cu
+    reduce_integer.cu
+    # nested_hello_world.cu
 )

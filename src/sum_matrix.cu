@@ -1,24 +1,8 @@
+#include "./fwd.cuh"
+#include "./common.cuh"
 #include <cuda_runtime.h>
 #include <stdio.h>
-#include <sys/time.h>
 #include <iostream>
-
-#define CHECK(call)                                                                      \
-    {                                                                                    \
-        const cudaError_t error = call;                                                  \
-        if (error != cudaSuccess) {                                                      \
-            fprintf(stderr, "Error: %s:%d, ", __FILE__, __LINE__);                       \
-            fprintf(stderr, "code: %d, reason: %s\n", error, cudaGetErrorString(error)); \
-        }                                                                                \
-    }
-
-double seconds()
-{
-    timeval tp;
-    struct timezone tzp;
-    int i = gettimeofday(&tp, &tzp);
-    return ((double)tp.tv_sec + (double)tp.tv_usec * 1.e-6);
-}
 
 void initialData(float* ip, int const size)
 {
