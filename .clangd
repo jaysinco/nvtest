@@ -4,6 +4,8 @@ CompileFlags:
     - --cuda-path=/usr/local/cuda
     - -IC:/usr/local/cuda/include
     - -LC:/usr/local/cuda/lib64
+  Remove:
+    - -arch=*
 
 InlayHints:
   Enabled: No

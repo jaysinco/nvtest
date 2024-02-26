@@ -5,5 +5,5 @@ add_executable(nvtest
     check_device.cu
     sum_matrix.cu
     reduce_integer.cu
-    # nested_hello_world.cu
+    nested_hello_world.cu
 )
