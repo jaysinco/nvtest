@@ -6,4 +6,5 @@ add_executable(nvtest
     sum_matrix.cu
     reduce_integer.cu
     nested_hello_world.cu
+    global_variable.cu
 )
