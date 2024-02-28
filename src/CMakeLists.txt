@@ -8,3 +8,15 @@ add_executable(nvtest
     nested_hello_world.cu
     global_variable.cu
 )
+
+add_executable(deviceQuery
+    deviceQuery.cpp
+)
+
+target_include_directories(deviceQuery PUBLIC
+    /usr/local/cuda/include/
+)
+
+target_link_libraries(deviceQuery PUBLIC
+    /usr/local/cuda/lib64/libcudart.so
+)

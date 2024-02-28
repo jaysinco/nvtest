@@ -62,7 +62,6 @@ function preprocess_code() {
 function cmake_build() {
     mkdir -p \
         $build_folder \
-        $log_folder \
     && \
     pushd $build_folder \
     && \
