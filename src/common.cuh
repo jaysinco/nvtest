@@ -1,5 +1,5 @@
 #pragma once
-#include <sys/time.h>
+#include <chrono>
 
 #define CHECK(call)                                                                      \
     {                                                                                    \
@@ -12,8 +12,7 @@
 
 inline double seconds()
 {
-    timeval tp;
-    struct timezone tzp;
-    int i = gettimeofday(&tp, &tzp);
-    return ((double)tp.tv_sec + (double)tp.tv_usec * 1.e-6);
+    auto now = std::chrono::system_clock::now();
+    auto micro = std::chrono::duration_cast<std::chrono::microseconds>(now.time_since_epoch());
+    return micro.count() * 1e-6;
 }

@@ -2,19 +2,16 @@ cmake_minimum_required(VERSION 3.16)
 
 project(nvtest LANGUAGES C CXX CUDA)
 
-find_package(CUDA REQUIRED)
+find_package(CUDAToolkit REQUIRED)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CUDA_COMPILER /usr/local/cuda/bin/nvcc)
 set(CMAKE_CUDA_STANDARD 14)
 set(CMAKE_CUDA_SEPARABLE_COMPILATION TRUE)
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_CUDA_FLAGS ${CMAKE_CUDA_FLAGS} "-arch=compute_87 -g -G")
-else()
-    set(CMAKE_CUDA_FLAGS ${CMAKE_CUDA_FLAGS} "-arch=compute_87")
+    set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -g -G")
 endif()
 
 set(MY_RUNTIME_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
@@ -29,7 +26,7 @@ elseif(WIN32)
         _WIN32_WINNT=0x0602
         NOMINMAX
     )
-    add_compile_options(/utf-8 /permissive-)
+    # add_compile_options(/utf-8 /permissive-)
 endif()
 
 add_subdirectory(src)

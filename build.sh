@@ -37,6 +37,16 @@ done
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 git_root="$(git rev-parse --show-toplevel)"
 
+case "$OSTYPE" in
+    linux*)   os=linux ;;
+    msys*)    os=windows ;;
+esac
+
+case `arch` in
+    x86_64)   arch=x64 ;;
+    aarch64)  arch=aarch64 ;;
+esac
+
 build_type=Release
 if [ $do_build_debug -eq 1 ]; then
     build_type=Debug
@@ -47,6 +57,16 @@ tuple_name=${build_type,,}
 build_folder=$git_root/out/$tuple_name
 binary_folder=$git_root/bin/$tuple_name
 log_folder=$binary_folder/logs
+
+if [ "$os" = "linux" ]; then
+    cmake_c_compiler="gcc"
+    cmake_cxx_compiler="g++"
+    cuda_architectures="87"
+else
+    cmake_c_compiler="cl"
+    cmake_cxx_compiler="cl"
+    cuda_architectures="86"
+fi
 
 function clean_build() {
     rm -rf $git_root/out
@@ -67,6 +87,9 @@ function cmake_build() {
     && \
     cmake $git_root -G "Ninja" \
         -DCMAKE_BUILD_TYPE=$build_type \
+        -DCMAKE_C_COMPILER=$cmake_c_compiler \
+        -DCMAKE_CXX_COMPILER=$cmake_cxx_compiler \
+        -DCMAKE_CUDA_ARCHITECTURES=$cuda_architectures \
         -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=$binary_folder \
     && \
     cp $build_folder/compile_commands.json $build_folder/.. \

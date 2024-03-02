@@ -49,8 +49,8 @@ int check_device(int argc, char** argv)
            deviceProp.maxTexture1DLayered[0], deviceProp.maxTexture1DLayered[1],
            deviceProp.maxTexture2DLayered[0], deviceProp.maxTexture2DLayered[1],
            deviceProp.maxTexture2DLayered[2]);
-    printf(" Total amount of constant memory: %lu bytes\n", deviceProp.totalConstMem);
-    printf(" Total amount of shared memory per block: %lu bytes\n", deviceProp.sharedMemPerBlock);
+    printf(" Total amount of constant memory: %zu bytes\n", deviceProp.totalConstMem);
+    printf(" Total amount of shared memory per block: %zu bytes\n", deviceProp.sharedMemPerBlock);
     printf(" Total number of registers available per block: %d\n", deviceProp.regsPerBlock);
     printf(" Warp size: %d\n", deviceProp.warpSize);
     printf(" Multi Processor Count: %d\n", deviceProp.multiProcessorCount);
@@ -61,7 +61,7 @@ int check_device(int argc, char** argv)
            deviceProp.maxThreadsDim[0], deviceProp.maxThreadsDim[1], deviceProp.maxThreadsDim[2]);
     printf(" Maximum sizes of each dimension of a grid: %d x %d x %d\n", deviceProp.maxGridSize[0],
            deviceProp.maxGridSize[1], deviceProp.maxGridSize[2]);
-    printf(" Maximum memory pitch: %lu bytes\n", deviceProp.memPitch);
+    printf(" Maximum memory pitch: %zu bytes\n", deviceProp.memPitch);
 
     return 0;
 }
