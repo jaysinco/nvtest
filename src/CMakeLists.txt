@@ -7,9 +7,11 @@ add_executable(nvtest
     reduce_integer.cu
     nested_hello_world.cu
     global_variable.cu
+    test_cufft.cu
 )
 target_link_libraries(nvtest PUBLIC
     CUDA::cudart
+    CUDA::cufft
 )
 
 add_executable(deviceQuery
