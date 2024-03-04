@@ -5,6 +5,8 @@
 #include <cuda.h>
 #include <cufft.h>
 
+#define MY_PI 3.14159265358979323846
+
 /*
  * An example usage of the cuFFT library. This example performs a 1D forward
  * FFT.
@@ -20,7 +22,7 @@ void generate_fake_samples(int N, float** out)
 {
     int i;
     float* result = (float*)malloc(sizeof(float) * N);
-    double delta = M_PI / 20.0;
+    double delta = MY_PI / 20.0;
 
     for (i = 0; i < N; i++) {
         result[i] = cos(i * delta);
