@@ -12,6 +12,7 @@ CompileFlags:
     - -rdc=*
     - --generate-code=*
     - -forward-unknown-to-host-compiler
+    - -G
 
 InlayHints:
   Enabled: No
