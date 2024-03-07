@@ -10,7 +10,7 @@ add_executable(nvtest
     test_cufft.cu
 )
 target_link_libraries(nvtest PUBLIC
-    CUDA::cudart
+    CUDA::cudart_static
     CUDA::cufft
 )
 
@@ -18,5 +18,5 @@ add_executable(deviceQuery
     deviceQuery.cpp
 )
 target_link_libraries(deviceQuery PUBLIC
-    CUDA::cudart
+    CUDA::cudart_static
 )
