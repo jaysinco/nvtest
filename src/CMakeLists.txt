@@ -1,6 +1,9 @@
-
 add_executable(nvtest
     main.cpp
+    stb_image_write.cpp
+    stb_image.cpp
+    julia_set.cpp
+
     hello_world.cu
     check_device.cu
     sum_matrix.cu
@@ -8,6 +11,7 @@ add_executable(nvtest
     nested_hello_world.cu
     global_variable.cu
     test_cufft.cu
+    julia_set.cu
 )
 target_link_libraries(nvtest PUBLIC
     CUDA::cudart_static
