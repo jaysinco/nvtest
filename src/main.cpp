@@ -2,7 +2,7 @@
 
 int main(int argc, char** argv)
 {
-    hello_world(argc, argv);
+    // hello_world(argc, argv);
     // check_device(argc, argv);
     // sum_matrix(argc, argv);
     // reduce_integer(argc, argv);
@@ -10,5 +10,6 @@ int main(int argc, char** argv)
     // global_variable(argc, argv);
     // test_cufft(argc, argv);
     // julia_set(argc, argv);
+    dot_product(argc, argv);
     return 0;
 }

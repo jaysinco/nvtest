@@ -12,6 +12,7 @@ add_executable(nvtest
     global_variable.cu
     test_cufft.cu
     julia_set.cu
+    dot_product.cu
 )
 target_link_libraries(nvtest PUBLIC
     CUDA::cudart_static
