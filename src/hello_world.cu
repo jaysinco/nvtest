@@ -38,6 +38,7 @@ int hello_world(int argc, char** argv)
     CHECK(cudaMemcpy(d_b, b.data(), N * sizeof(int), cudaMemcpyHostToDevice));
 
     sum_vec<<<N / 32, 32>>>(d_a, d_b, d_c, N);
+    CHECK(cudaPeekAtLastError());
 
     CHECK(cudaMemcpy(c.data(), d_c, N * sizeof(int), cudaMemcpyDeviceToHost));
 
