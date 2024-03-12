@@ -1,6 +1,5 @@
 #include "./fwd.cuh"
 #include "stb_image_write.h"
-#include <stdio.h>
 
 int julia_set(int argc, char** argv)
 {

@@ -1,8 +1,6 @@
 #include "./fwd.cuh"
 #include "./common.cuh"
 #include <cuda_runtime.h>
-#include <vector>
-#include <stdio.h>
 
 struct myComplex
 {
@@ -67,4 +65,5 @@ void fill_julia_set(int image_width, int image_height, uint8_t* pixels)
     calc_julia<<<grid, block>>>(image_width, image_height, d_pixels);
     CHECK(cudaPeekAtLastError());
     CHECK(cudaMemcpy(pixels, d_pixels, pixels_size, cudaMemcpyDeviceToHost));
+    CHECK(cudaFree(d_pixels))
 }
