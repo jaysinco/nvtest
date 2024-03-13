@@ -63,8 +63,21 @@ void fill_julia_set(int image_width, int image_height, uint8_t* pixels)
     CHECK(cudaMalloc(&d_pixels, pixels_size));
     dim3 block(32, 32);
     dim3 grid((image_width + block.x - 1) / block.x, (image_height + block.y - 1) / block.y);
+
+    cudaEvent_t start, stop;
+    CHECK(cudaEventCreate(&start));
+    CHECK(cudaEventCreate(&stop));
+    CHECK(cudaEventRecord(start));
     calc_julia<<<grid, block>>>(image_width, image_height, d_pixels);
     CHECK(cudaPeekAtLastError());
+    CHECK(cudaEventRecord(stop));
+    CHECK(cudaEventSynchronize(stop));
+    float elapsed_ms;
+    CHECK(cudaEventElapsedTime(&elapsed_ms, start, stop));
+    printf("ElapsedTime: %.3f ms\n", elapsed_ms);
+    CHECK(cudaEventDestroy(start))
+    CHECK(cudaEventDestroy(stop))
+
     CHECK(cudaMemcpy(pixels, d_pixels, pixels_size, cudaMemcpyDeviceToHost));
     CHECK(cudaFree(d_pixels))
 }
