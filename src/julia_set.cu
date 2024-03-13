@@ -1,6 +1,7 @@
 #include "./fwd.cuh"
 #include "./common.cuh"
 #include <cuda_runtime.h>
+#include "stb_image_write.h"
 
 struct myComplex
 {
@@ -66,4 +67,19 @@ void fill_julia_set(int image_width, int image_height, uint8_t* pixels)
     CHECK(cudaPeekAtLastError());
     CHECK(cudaMemcpy(pixels, d_pixels, pixels_size, cudaMemcpyDeviceToHost));
     CHECK(cudaFree(d_pixels))
+}
+
+int julia_set(int argc, char** argv)
+{
+    int image_width = 2560;
+    int image_height = 1440;
+    int channel_num = 3;
+    int pixels_size = image_width * image_height * channel_num;
+
+    uint8_t* pixels = new uint8_t[pixels_size];
+    fill_julia_set(image_width, image_height, pixels);
+    stbi_write_jpg("julia_set.jpg", image_width, image_height, channel_num, pixels, 100);
+    delete[] pixels;
+
+    return 0;
 }

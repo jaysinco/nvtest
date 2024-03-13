@@ -10,6 +10,7 @@ int main(int argc, char** argv)
     // global_variable(argc, argv);
     // test_cufft(argc, argv);
     // julia_set(argc, argv);
-    dot_product(argc, argv);
+    // dot_product(argc, argv);
+    ray_tracing(argc, argv);
     return 0;
 }
