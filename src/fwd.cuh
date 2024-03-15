@@ -12,3 +12,4 @@ int julia_set(int argc, char** argv);
 void fill_julia_set(int image_width, int image_height, uint8_t* pixels);
 int dot_product(int argc, char** argv);
 int ray_tracing(int argc, char** argv);
+int txi_gaussian(int argc, char** argv);

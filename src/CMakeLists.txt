@@ -13,6 +13,7 @@ add_executable(nvtest
     julia_set.cu
     dot_product.cu
     ray_tracing.cu
+    txi_gaussian.cu
 )
 target_link_libraries(nvtest PUBLIC
     CUDA::cudart_static

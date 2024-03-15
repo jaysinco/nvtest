@@ -11,6 +11,7 @@ int main(int argc, char** argv)
     // test_cufft(argc, argv);
     // julia_set(argc, argv);
     // dot_product(argc, argv);
-    ray_tracing(argc, argv);
+    // ray_tracing(argc, argv);
+    txi_gaussian(argc, argv);
     return 0;
 }
